@@ -1,0 +1,2471 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="sbor2qYqfhSPSjO1blg7d8">
+<head data-page-node-id="aFYqrGSZoAf3wiDhNddt5U">
+<meta charset="UTF-8" data-page-node-id="dZaMAywxvNIV65gPw7OPkH">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="ovp8vbl3sJD9gMAclbuTAm">
+<title>寿晨恺作品集 | ChenKai Shou Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" data-page-node-id="flGVfRgUvzh2XxIondDb7E">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-warm: #ffffff;
+    --bg-dark: #050505;
+    --bg-bluegray: #4f5d6b;
+    --card-cream: #f2ece3;
+    --text-dark: #1a1a1a;
+    --text-light: #999999;
+    --accent-orange: #e85d2b;
+    --accent-red: #c93a3a;
+    /* 苹果级统一缓动 */
+    --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg-dark);
+  }
+
+  /* ===== 页面容器 ===== */
+  .page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.9s var(--ease-apple);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .page.no-anim { transition: none !important; }
+
+  .page-cover {
+    background: var(--bg-warm);
+    z-index: 30;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .page-cover.up {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .page-project {
+    background: var(--bg-bluegray);
+    z-index: 20;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  .page-project.active {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .page-project21 {
+    background: var(--bg-dark);
+    z-index: 40;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  .page-project21.active {
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* ===== 导航 ===== */
+  .main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 36px 48px;
+    z-index: 200;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+  }
+
+  .main-nav > * { pointer-events: auto; }
+
+  .nav-brand {
+    line-height: 1.3;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .nav-brand .name-cn {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    display: block;
+    color: var(--text-dark);
+    text-shadow: 0 0 1px rgba(0,0,0,0.15);
+  }
+
+  .nav-brand .name-en {
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: rgba(0,0,0,0.45);
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* 深色模式导航 */
+  .main-nav.nav-dark .nav-brand .name-cn,
+  .main-nav.nav-dark .nav-brand .name-en {
+    color: #fff;
+  }
+
+  .main-nav.nav-dark .nav-brand .name-en {
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* 第2/3页隐藏全局导航（名字已嵌入方块角落 / 退出键独占左上角） */
+  .main-nav.nav-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 3px;
+  }
+
+  .main-nav.nav-dark .nav-links a {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-dark);
+    transition: width 0.5s var(--ease-out-expo);
+  }
+
+  .main-nav.nav-dark .nav-links a::after {
+    background: rgba(255,255,255,0.6);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  /* ===== 第1页：封面 ===== */
+  .cover-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 48px;
+    position: relative;
+  }
+
+  .title-block {
+    position: relative;
+    z-index: 2;
+    margin-top: -70px;
+  }
+
+  .calligraphy-row {
+    display: flex;
+    align-items: baseline;
+    gap: clamp(10px, 1.5vw, 20px);
+    flex-wrap: wrap;
+  }
+
+  .calligraphy-row .char-img {
+    height: clamp(110px, 17vh, 215px);
+    width: auto;
+    object-fit: contain;
+    image-rendering: auto;
+    transform: translate(var(--px, 0px), var(--py, 0px));
+    transition: transform 0.6s var(--ease-out-expo);
+    cursor: default;
+  }
+
+  /* 每个字独立：鼠标移上单独向上跳动 */
+  .calligraphy-row .char-img:hover {
+    transform: translate(var(--px, 0px), var(--py, 0px)) translateY(-10px);
+  }
+
+  /* 印章容器 - 敲头章盖在作品集右上方 */
+  .seal-koutou-wrap {
+    position: absolute;
+    top: -10px;
+    right: -55px;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    z-index: 5;
+    transform: translate(var(--px, 0px), var(--py, 0px)) rotate(-6deg);
+    pointer-events: none;
+  }
+
+  .seal-koutou-wrap img {
+    width: 200%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    filter: grayscale(100%) contrast(400%) brightness(0.85) sepia(1) saturate(8) hue-rotate(-10deg);
+    opacity: 0.85;
+  }
+
+  /* 副标题 */
+  .title-sub {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #999999;
+    margin-top: 36px;
+    margin-left: 4px;
+    display: inline-block;
+    padding: 3px 10px 3px 12px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 1px;
+  }
+
+  /* ===== 拼贴 ===== */
+  .collage-item {
+    position: absolute;
+    z-index: 3;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    transform: translate(var(--px, 0px), var(--py, 0px)) rotate(var(--rot, 0deg));
+    transition: transform 0.8s var(--ease-out-expo);
+    will-change: transform;
+    border-radius: 2px;
+  }
+
+  .collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(78%);
+  }
+
+  .collage-1 {
+    top: 20%;
+    right: 6%;
+    width: 325px;
+    height: 228px;
+    --rot: 2deg;
+  }
+
+  .collage-2 {
+    top: 49%;
+    right: 19%;
+    width: 105px;
+    height: 168px;
+    --rot: -3deg;
+  }
+
+  .collage-3 {
+    bottom: 25%;
+    right: 9%;
+    width: 190px;
+    height: 137px;
+    --rot: 4deg;
+  }
+
+  /* ===== 散落文字 ===== */
+  .scattered {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 2;
+    color: var(--text-light);
+    z-index: 2;
+    text-transform: uppercase;
+    transform: translate(var(--px, 0px), var(--py, 0px));
+  }
+
+  .scat-1 {
+    bottom: 30%;
+    left: 52%;
+  }
+
+  .scat-2 {
+    bottom: 12%;
+    right: 8%;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  .scat-3 {
+    bottom: 22%;
+    left: 60%;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: #bbbbbb;
+  }
+
+  /* 名字章 */
+  .seal-name-wrap {
+    position: absolute;
+    bottom: 26%;
+    left: 48px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    z-index: 5;
+    transform: translate(var(--px, 0px), var(--py, 0px)) rotate(4deg);
+    pointer-events: none;
+  }
+
+  .seal-name-wrap img {
+    width: 200%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    filter: grayscale(100%) contrast(400%) brightness(0.85) sepia(1) saturate(8) hue-rotate(-10deg);
+    opacity: 0.8;
+  }
+
+  /* ===== 底部信息 ===== */
+  .footer {
+    position: absolute;
+    bottom: 36px;
+    left: 48px;
+    right: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 10;
+  }
+
+  .footer-left, .footer-right {
+    font-size: 9px;
+    color: #bbbbbb;
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .divider {
+    position: absolute;
+    bottom: 120px;
+    left: 48px;
+    right: 48px;
+    height: 1px;
+    background: rgba(0,0,0,0.06);
+    z-index: 10;
+  }
+
+  /* Scroll 提示 */
+  .scroll-hint {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+  }
+
+  .scroll-hint span {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #cccccc;
+  }
+
+  .scroll-arrow {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, #cccccc, transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  /* ===== 第2页：作品封面页 ===== */
+  .project-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5cm;
+    position: relative;
+  }
+
+  .project-frame {
+    width: 100%;
+    cursor: pointer;
+    background: var(--card-cream);
+    border-radius: 28px;
+    padding: 24px 42px 36px;
+    box-shadow: 0 26px 80px rgba(0,0,0,0.30);
+    transition: transform 0.7s var(--ease-out-expo);
+    will-change: transform;
+  }
+
+  /* 整块 hover 样式定义在 .pf-image-tile 段下方（避免重复） */
+
+  /* 名字（方块左上角）+ 导航（方块右上角） */
+  .pf-corners {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 12px;
+  }
+
+  .pf-name { line-height: 1.3; }
+
+  .pf-name .name-cn {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    display: block;
+    color: #111111;
+    text-shadow: 0 0 1px rgba(0,0,0,0.15);
+  }
+
+  .pf-name .name-en {
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: rgba(0,0,0,0.5);
+    margin-top: 2px;
+    display: block;
+  }
+
+  .pf-nav {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 2px;
+  }
+
+  .pf-nav a {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #111111;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 3px;
+    cursor: pointer;
+  }
+
+  .pf-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #111111;
+    transition: width 0.5s var(--ease-out-expo);
+  }
+
+  .pf-nav a:hover::after { width: 100%; }
+
+  /* About / Contact：纯文字，不带下划线动画，不响应点击 */
+  .pf-nav-text {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+    padding-bottom: 3px;
+    cursor: default;
+  }
+
+  /* Contact：黑底白字，中和第二页视觉重心 */
+  .pf-nav-text.pf-nav-contact {
+    background: #141414;
+    color: #ffffff;
+    padding: 6px 14px 5px;
+    border-radius: 999px;
+    margin-top: -6px; /* 抵消 padding-bottom，与其他导航词同一水平线 */
+  }
+
+  /* 介绍文字（图片上方，灰色，横向一行，居中） */
+  .pf-desc {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgba(0,0,0,0.45);
+    margin-bottom: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
+  /* 图片四联：等宽并排，contain 模式，留窄间隙，无单图 hover */
+  .pf-image-wrap {
+    width: 100%;
+    height: clamp(220px, 33vh, 480px);
+    overflow: hidden;
+    position: relative;
+    background: #eae5dc;
+    border-radius: 10px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .pf-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(234,229,220,0.45) 100%);
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 10px;
+  }
+
+  .pf-image-tile {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #ddd6c8;
+    position: relative;
+    transform: translateZ(0); /* 强制合成层，提升缩放画质 */
+  }
+
+  .pf-image-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    filter: contrast(1.05) saturate(0.96);
+    image-rendering: -webkit-optimize-contrast;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* 整块 project-frame hover：四张图与框体一起变 */
+  .project-frame:hover {
+    transform: perspective(1200px) rotateX(1.2deg) translateZ(24px) scale(1.018);
+  }
+
+  /* 英文标题（图片下方：居中、超重黑体、纵向拉长、贴紧图片） */
+  .pf-title {
+    font-family: 'Inter', 'Helvetica Neue', 'Arial Black', sans-serif;
+    font-size: clamp(44px, 7.5vw, 108px);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #141414;
+    line-height: 0.9;
+    white-space: nowrap;
+    /* 上下拉长：只拉伸纵向，宽度保持 */
+    transform: scaleY(1.35);
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  /* 标题行：POP-UP BOOK 偏左 + 右侧小号"立体书"，整体居中 */
+  .pf-title-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(16px, 2.4vw, 36px);
+    margin-top: 26px; /* scaleY 拉伸后视觉上溢出盒子约17px，补偿后净间距约9px */
+  }
+
+  .pf-title-cn {
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+    font-size: clamp(18px, 2.1vw, 32px);
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    color: #141414;
+    line-height: 1;
+    white-space: nowrap;
+    /* 同样的纵向拉伸，与大标题风格一致 */
+    transform: scaleY(1.35);
+    transform-origin: center center;
+    padding-bottom: clamp(4px, 0.6vw, 10px); /* 贴齐大字底部基线 */
+  }
+
+  .project-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .project-hint .hint-line {
+    width: 1px;
+    height: 24px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  }
+
+  /* ===== 第2页撕开转场（第2页 → 2.1页） ===== */
+  /* frame 在原位卷曲：perspective 拉伸 + rotateX + 微缩放，不飞出屏幕避免遮住撕口 */
+  .page-project.tearing .project-frame {
+    transform-origin: 50% 50%;
+    animation: frameTearOpen 1.0s cubic-bezier(0.55, 0, 0.32, 1) forwards;
+    z-index: 5;
+  }
+
+  /* 卷边写实阴影：frame 上覆盖一层径向阴影，模拟翻起后的纸面背光 */
+  .page-project.tearing .project-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    background:
+      radial-gradient(ellipse 60% 70% at 50% 110%, rgba(0,0,0,0.45), transparent 70%),
+      radial-gradient(ellipse 40% 50% at 50% -10%, rgba(255,255,255,0.10), transparent 70%);
+    pointer-events: none;
+    animation: frameShadowPulse 1.0s cubic-bezier(0.55, 0, 0.32, 1) forwards;
+    z-index: 2;
+  }
+
+  @keyframes frameTearOpen {
+    0%   { opacity: 1; transform: perspective(1400px) rotateX(0deg) scale(1) translate3d(0, 0, 0); }
+    25%  { opacity: 1; transform: perspective(1400px) rotateX(6deg) scale(0.995) translate3d(0, -1vh, 4px); }
+    60%  { opacity: 0.55; transform: perspective(1400px) rotateX(28deg) scale(0.93) translate3d(0, 2vh, -20px); }
+    100% { opacity: 0; transform: perspective(1400px) rotateX(52deg) scale(0.82) translate3d(0, 6vh, -60px); }
+  }
+
+  @keyframes frameShadowPulse {
+    0%   { opacity: 0; }
+    40%  { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+
+  .page-project.tearing .project-hint { opacity: 0; }
+
+  /* 撕下来的纸屑：从撕口向四周飞散 */
+  .tear-debris {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 600;
+    background:
+      radial-gradient(ellipse at 35% 30%, #fbf7ee, #efe6d3 75%);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.28);
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation: debrisFly var(--dur, 1.05s) cubic-bezier(0.18, 0.9, 0.22, 1) forwards;
+  }
+
+  @keyframes debrisFly {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); opacity: 1; }
+    100% { transform: translate3d(var(--dx, 40vw), var(--dy, -30vh), 0) rotate(var(--dr, 220deg)) scale(0.55); opacity: 0; }
+  }
+
+  /* ===== 2.1页（堆叠撕纸画廊 — 第2页的子页面） ===== */
+  .gallery-body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /* 参考 CIVO ENERGY 产品摄影棚：顶部纯黑 → 深紫灰 → 底部中央粉紫柔光晕 */
+    background:
+      radial-gradient(ellipse 48% 30% at 50% 95%, rgba(196,148,178,0.38), transparent 62%),
+      radial-gradient(ellipse 60% 38% at 50% 105%, rgba(140,100,128,0.28), transparent 70%),
+      linear-gradient(180deg,
+        #0a0a0c 0%,
+        #15101a 22%,
+        #1f1822 45%,
+        #2a2430 68%,
+        #1a151c 100%);
+  }
+
+  /* 颗粒噪点纹理（用重复细线 + 暗线，模拟摄影胶片质感） */
+  .gallery-body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 3px),
+      repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 4px);
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: overlay;
+  }
+
+  /* 顶部柔光（参考图顶部的弧形聚光感） */
+  .gallery-body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 40%;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(255,235,220,0.045), transparent 65%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* 2.1 标识（左下角 — 与右下角进度对称） */
+  .page-marker {
+    position: absolute;
+    bottom: 44px;
+    left: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 250;
+  }
+
+  .marker-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-orange);
+    box-shadow: 0 0 10px rgba(232,93,43,0.5);
+  }
+
+  .marker-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* 退出按钮 */
+  .gallery-exit {
+    position: absolute;
+    top: 36px;
+    left: 48px;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  .gallery-exit:hover {
+    background: rgba(255,255,255,0.06);
+  }
+
+  .gallery-exit svg {
+    width: 16px;
+    height: 16px;
+    stroke: rgba(255,255,255,0.5);
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  .gallery-exit span {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* 卡片堆 */
+  .stack-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stack-card {
+    position: absolute;
+    width: min(900px, 80vw);
+    height: min(620px, 68vh);
+    /* 基础 transition 只含 transform — opacity 在 layoutStack 时瞬时切换，避免翻牌时"卡在半透明"的视觉 */
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+    cursor: pointer;
+  }
+
+  /* 撕纸卡片 — 写实风格（参考 Walter Gropius 海报撕纸）：
+     - 主体：暖白纸底 + 径向微暗角，模拟纸张受光
+     - 撕裂边缘：JS 生成双频抖动 polygon（低频大撕裂 + 高频纤维毛刺）
+     - 卷边高光层：撕裂翻起处的亮色褶皱
+     - 阴影层：翻起纸边的局部投影 + 整体右下深投影 */
+  .stack-card-clip {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 96% 96% at 48% 44%, #faf6ec 60%, #e6d9bf 100%);
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  .stack-card-clip img {
+    width: 100%;
+    height: 100%;
+    /* contain: 图片完整不裁切，竖屏图会在卡片左右留出纸色背景（#f6f1e6），看起来自然 */
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+  }
+
+  /* contain 模式下卡片背景与图片填充色一致的纸色，竖屏图左右留白看起来像装裱 */
+  .stack-card-clip { background: #f6f1e6; }
+
+  /* 卷起的纸边高光（翻起处被光照亮） */
+  .stack-card-curl {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+    background:
+      radial-gradient(ellipse 42% 16% at 12% 10%, rgba(255,255,255,0.9), transparent 72%),
+      radial-gradient(ellipse 38% 13% at 90% 93%, rgba(255,255,255,0.55), transparent 70%),
+      radial-gradient(ellipse 20% 8% at 96% 8%, rgba(255,255,255,0.4), transparent 72%);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+  }
+
+  /* 纸面立体阴影（翻起边在纸面上的投影 + 右下整体暗部） */
+  .stack-card-shadow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background:
+      radial-gradient(ellipse 70% 82% at 100% 100%, rgba(60,40,20,0.20), transparent 66%),
+      radial-gradient(ellipse 20% 7% at 14% 12%, rgba(60,40,20,0.16), transparent 74%),
+      radial-gradient(ellipse 17% 5% at 88% 93%, rgba(60,40,20,0.13), transparent 72%);
+  }
+
+  /* 进度指示（右下角，与左上的 Back 退出键对称） */
+  .gallery-progress {
+    position: absolute;
+    bottom: 44px;
+    right: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    z-index: 250;
+  }
+
+  .progress-bar {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+    overflow: hidden;
+    order: 1;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    width: 0;
+    background: var(--accent-orange);
+    transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .progress-num {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.5);
+    order: 2;
+  }
+
+  .progress-num b {
+    color: var(--accent-orange);
+    font-weight: 600;
+  }
+
+  .progress-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+    order: 3;
+  }
+
+  /* ===== 第3页（编号3）：Kavino's Detouring Essay — 仿「9.2 Social Media Strategy」版式 ===== */
+  /* 配色：奶油纸底 / 墨黑 / 佐以经典黑白红中的一点红 */
+  .page-book {
+    background: #f1efe6;
+    color: #17150f;
+    z-index: 45;
+    transform: translate3d(0, 100%, 0);
+  }
+  .page-book.active { transform: translate3d(0, 0, 0); }
+  .page-book * { box-sizing: border-box; }
+
+  .book-exit {
+    position: fixed; top: 22px; left: 26px; z-index: 60;
+    display: flex; align-items: center; gap: 8px;
+    background: transparent; border: 1px solid rgba(23,21,15,0.3);
+    color: #17150f; padding: 7px 13px; border-radius: 999px;
+    font-family: inherit; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.25s;
+  }
+  .book-exit svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 1.8; fill: none; }
+  .book-exit:hover { background: rgba(23,21,15,0.06); }
+
+  .book-body {
+    position: relative; height: 100%; width: 100%;
+    padding: 38px 70px 42px;
+    display: flex; flex-direction: column; min-height: 0;
+    overflow: auto;
+  }
+
+  .book-topbar {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #17150f; padding-bottom: 13px; border-bottom: 1px solid #17150f; font-weight: 600;
+    flex: 0 0 auto;
+  }
+  .bt-right { color: rgba(23,21,15,0.55); }
+  /* 返回键固定在左上角，顶栏左侧文字让位，保持 hairline 满宽 */
+  .bt-left { margin-left: 40px; }
+
+  .book-grid {
+    flex: 1 1 auto; min-height: 0;
+    display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr);
+    gap: 44px; margin-top: 30px; min-height: 0;
+  }
+
+  .book-main { display: flex; flex-direction: column; min-height: 0; }
+  .book-lead {
+    font-size: clamp(23px, 3vw, 39px);
+    font-weight: 800; line-height: 1.14; letter-spacing: -0.018em;
+    text-transform: uppercase; color: #17150f; max-width: 94%; margin: 0;
+  }
+  .book-lead em { font-style: normal; color: #e31e24; }
+  .book-sub {
+    font-size: 12.5px; line-height: 1.55; color: #48443a; margin: 18px 0 0; max-width: 46ch;
+  }
+
+  .book-cols {
+    margin-top: 34px;
+    display: grid; grid-template-columns: 1fr 1fr; column-gap: 38px; row-gap: 24px;
+  }
+  .book-cols .col h4 {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #17150f; margin: 0 0 6px;
+  }
+  .book-cols .col p {
+    font-size: 11.5px; line-height: 1.6; color: #48443a; margin: 0; max-width: 30ch;
+  }
+
+  .book-photos {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: start;
+    min-height: 0;
+  }
+  .book-photos figure { margin: 0; }
+  .book-photos img {
+    width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block;
+    background: #ece8dd;
+  }
+  .book-photos figcaption {
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #17150f; margin-top: 6px; opacity: 0.72;
+  }
+
+  /* 页脚：左下角标注块 —— 数字+标题紧凑组合，收窄不横贯整行 */
+  .book-footer {
+    flex: 0 0 auto; margin-top: auto; padding-top: 12px; border-top: 1px solid #17150f;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .bf-num {
+    font-size: clamp(24px, 2.8vw, 34px); font-weight: 800; line-height: 1;
+    color: #17150f; letter-spacing: -0.01em;
+  }
+  .bf-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .bf-title h3 {
+    font-size: clamp(13px, 1.4vw, 16px); font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.01em; margin: 0; color: #17150f;
+  }
+  .bf-title p { font-size: 9.5px; color: #48443a; margin: 3px 0 0; letter-spacing: 0.05em; }
+  .bf-meta {
+    font-size: 8.5px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(23,21,15,0.5);
+  }
+
+  .book-edge {
+    position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+    writing-mode: vertical-rl; font-size: 9px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: rgba(23,21,15,0.42);
+  }
+
+  /* ===== 第4页（编号4）：Hanfu 汉服 — 投影·装置·服装 ===== */
+  /* 概念：打破网格的编辑排版。篆书 汉/服 分踞对角线作巨标，
+     正文英文、索引细线、非对称图片墙；整体像旧服装设计网页，而非博物馆。 */
+  .page-hanfu {
+    background: #f1efe6;
+    color: #17150f;
+    z-index: 44;
+    transform: translate3d(0, 100%, 0);
+  }
+  .page-hanfu.active { transform: translate3d(0, 0, 0); }
+  .page-hanfu * { box-sizing: border-box; }
+
+  .hf-body {
+    position: relative; height: 100%; width: 100%;
+    padding: 38px 70px 46px;
+    overflow-y: auto; overflow-x: hidden;
+  }
+  .hf-inner { max-width: 1460px; margin: 0 auto; }
+
+  /* 顶部细线栏 */
+  .hf-topbar {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #17150f; padding-bottom: 13px; border-bottom: 1px solid #17150f; font-weight: 600;
+  }
+  .hf-topbar .hf-tl { margin-left: 40px; }
+  .hf-topbar .hf-tr { color: rgba(23,21,15,0.55); }
+
+  /* 巨标区：汉 服 对角 + 英文标题块，流云在后方作底 */
+  .hf-hero {
+    position: relative; margin-top: 26px;
+    display: grid; grid-template-columns: 1fr minmax(0,2.2fr) 1fr;
+    align-items: start; gap: 20px;
+  }
+  .hf-hero .cloud {
+    position: absolute; left: 50%; top: 6%; transform: translateX(-50%);
+    width: min(46%, 640px); opacity: 0.34; pointer-events: none;
+    filter: blur(0.4px);
+  }
+  .hf-seal { position: relative; z-index: 2; }
+  .hf-seal img { display: block; width: 100%; height: auto; }
+  /* 汉/服 等高：fu 宽 × 1.172 = han 宽（按两字 PNG 实际宽高比换算，保证渲染高度一致） */
+  .hf-seal-han { width: clamp(176px, 16.4vw, 281px); margin-top: clamp(30px, 5vw, 84px); }
+  .hf-seal-fu { width: clamp(150px, 14vw, 240px); margin-left: auto; margin-top: clamp(8px, 2vw, 26px); }
+
+  .hf-head { position: relative; z-index: 3; padding: 8px 26px 0; }
+  .hf-eyebrow {
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: #17150f; font-weight: 700; display: flex; gap: 10px; align-items: center;
+  }
+  .hf-eyebrow::after { content: ''; flex: 1; height: 1px; background: rgba(23,21,15,0.25); }
+  .hf-wordmark {
+    margin: 16px 0 0; font-size: clamp(28px, 4vw, 54px); font-weight: 900;
+    letter-spacing: 0.06em; line-height: 1; color: #17150f; text-transform: uppercase;
+  }
+  .hf-wordmark .dot { color: #e31e24; }
+  .hf-lead {
+    margin: 22px 0 0; font-size: clamp(16px, 1.7vw, 21px); font-weight: 700;
+    line-height: 1.4; letter-spacing: -0.01em; text-transform: uppercase; max-width: 34ch;
+  }
+  .hf-lead em { font-style: normal; color: #e31e24; }
+  .hf-prose {
+    margin: 18px 0 0; font-size: 13px; line-height: 1.75; color: #48443a; max-width: 62ch;
+  }
+
+  /* 三个挑战编号块 */
+  .hf-challenges {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-top: 1px solid #17150f; border-bottom: 1px solid #17150f;
+    margin-top: 30px;
+  }
+  .hf-ch {
+    padding: 18px 22px 20px 0; border-right: 1px solid rgba(23,21,15,0.28);
+  }
+  .hf-ch + .hf-ch { padding-left: 22px; }
+  .hf-ch:last-child { border-right: none; }
+  .hf-ch .no {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 10px; letter-spacing: 0.1em; color: #e31e24; display: block; margin-bottom: 8px;
+  }
+  .hf-ch h5 {
+    margin: 0 0 6px; font-size: 11px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.13em; color: #17150f;
+  }
+  .hf-ch p { margin: 0; font-size: 11.5px; line-height: 1.62; color: #48443a; }
+
+  /* 索引 meta（旧网页资料感） */
+  .hf-index {
+    display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 44px;
+    margin-top: 26px;
+  }
+  .hf-idx-row {
+    display: grid; grid-template-columns: 150px 1fr; gap: 18px;
+    padding: 9px 0; border-bottom: 1px solid rgba(23,21,15,0.16);
+    font-size: 11px; line-height: 1.5;
+  }
+  .hf-idx-row .k {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(23,21,15,0.55); padding-top: 1px;
+  }
+  .hf-idx-row .v { color: #17150f; }
+
+  /* 图片墙：3×2 整齐网格，统一 16:9，整体居中 */
+  .hf-stills-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin: 42px 0 18px; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #17150f; font-weight: 700; padding-bottom: 11px; border-bottom: 1px solid #17150f;
+  }
+  .hf-stills-head .r { color: rgba(23,21,15,0.5); font-weight: 500; }
+  .hf-media {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    max-width: 1140px; margin: 0 auto;
+  }
+  .hf-shot { margin: 0; }
+  .hf-shot .fr {
+    border: 1px solid rgba(23,21,15,0.35); background: #e9e4d6; overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .hf-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hf-shot figcaption {
+    margin-top: 6px; display: flex; justify-content: space-between;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(23,21,15,0.6);
+  }
+  .hf-shot figcaption b { color: #e31e24; font-weight: 600; }
+
+  /* 影片行：the piece, with sound */
+  .hf-video-row {
+    margin-top: 46px; border: 1px solid #17150f; background: #17150f; color: #f1efe6;
+    padding: 18px 22px 22px;
+  }
+  .hf-video-top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #f1efe6; font-weight: 700; margin-bottom: 14px;
+  }
+  .hf-video-top .r { color: rgba(241,239,230,0.55); font-weight: 500; }
+  .hf-video-row video {
+    width: 100%; display: block; background: #000; aspect-ratio: 16 / 9; outline: none;
+  }
+  .hf-video-note {
+    margin: 10px 0 0; font-size: 10.5px; line-height: 1.6; color: rgba(241,239,230,0.62);
+    max-width: 90ch;
+  }
+
+  /* 页脚标注 */
+  .hf-footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 26px; padding-top: 12px; border-top: 1px solid #17150f;
+  }
+  .hf-fnum {
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .hf-fnum .n {
+    font-size: clamp(26px, 3vw, 36px); font-weight: 900; line-height: 1; color: #17150f;
+  }
+  .hf-fnum .t {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    color: #17150f;
+  }
+  .hf-fnum .t span { display: block; font-weight: 500; color: #48443a; letter-spacing: 0.06em; margin-top: 3px; }
+  .hf-fmeta {
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(23,21,15,0.5);
+  }
+
+  .hf-edge {
+    position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+    writing-mode: vertical-rl; font-size: 9px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: rgba(23,21,15,0.42);
+  }
+
+  /* ===== 第5页（编号5：Revolver — 商周青铜纹饰左轮）黑底满宽巨字版式 ===== */
+  .page-gun {
+    background: #0c0c0c; color: #f2f2f0;
+    z-index: 43; transform: translate3d(0, 100%, 0);
+    transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  .page-gun.active { transform: translate3d(0, 0, 0); }
+  .page-gun * { box-sizing: border-box; }
+
+  .gn-exit { border-color: rgba(242,242,240,0.35); color: #f2f2f0; }
+  .gn-exit:hover { background: rgba(242,242,240,0.08); }
+
+  .gn-body {
+    position: relative; height: 100%; width: 100%;
+    padding: 38px 70px 46px;
+    overflow-y: auto; overflow-x: hidden;
+  }
+  .gn-inner { max-width: 1460px; margin: 0 auto; }
+
+  /* 顶部三段 meta（IN'FORM 式） */
+  .gn-meta {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 20px;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(242,242,240,0.85); font-weight: 600; padding-bottom: 13px;
+  }
+  .gn-meta .r { color: rgba(242,242,240,0.48); }
+  .gn-meta .l { margin-left: 44px; }
+
+  /* 满宽巨字（SVG textLength 精确撑满内宽，与图片边框对齐；右上角红印章） */
+  .gn-giantwrap { position: relative; margin-top: 14px; }
+  .gn-giant { display: block; width: 100%; height: auto; margin: 0; }
+  .gn-giant text {
+    font-weight: 900; letter-spacing: -0.012em;
+    fill: #f2f2f0;
+  }
+  .gn-seal {
+    position: absolute; top: -16px; right: -6px;
+    width: clamp(44px, 4.6vw, 74px); height: auto;
+    opacity: 0.95; pointer-events: none;
+  }
+
+  /* 导语（置于渲染图下方） */
+  .gn-lead2 {
+    margin: 30px 0 0; max-width: 78ch; font-size: 14.5px; line-height: 1.6;
+    color: rgba(20, 20, 20, 0.85);
+  }
+  .gn-lead2 em { font-style: normal; color: #e31e24; }
+
+  /* 白底 renders 区（全宽出血，IN'FORM featured 式） */
+  .gn-renders {
+    background: #f4f4f2; color: #141414;
+    margin: 0 -70px 0; padding: 24px 70px 40px;
+  }
+  .gn-feathead {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 700; color: #141414; padding-bottom: 11px; border-bottom: 1px solid #141414;
+  }
+  .gn-feathead .r { color: rgba(20,20,20,0.5); font-weight: 500; }
+  .gn-heroimg { margin: 20px 0 0; }
+  .gn-heroimg .fr { border: 1px solid rgba(20,20,20,0.35); background: #e9e9e7; overflow: hidden; aspect-ratio: 21 / 9; }
+  .gn-heroimg img { width: 100%; height: 100%; object-fit: cover; display: block; object-position: 50% 21%; }
+  .gn-heroimg figcaption, .gn-card figcaption, .gn-pshot figcaption {
+    margin-top: 6px; display: flex; justify-content: space-between;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(20,20,20,0.6);
+  }
+  .gn-heroimg figcaption b, .gn-card figcaption b { color: #e31e24; font-weight: 600; }
+  .gn-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
+  .gn-card { margin: 0; }
+  .gn-card .fr { border: 1px solid rgba(20,20,20,0.35); background: #e9e9e7; overflow: hidden; aspect-ratio: 16 / 10; }
+  .gn-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gn-card figcaption b { color: #e31e24; font-weight: 600; }
+
+  /* 黑底 process 区 3×2 */
+  .gn-process { margin-top: 44px; }
+  .gn-prohead {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 700; color: #f2f2f0; padding-bottom: 11px; border-bottom: 1px solid rgba(242,242,240,0.85);
+  }
+  .gn-prohead .r { color: rgba(242,242,240,0.48); font-weight: 500; }
+  .gn-pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+  .gn-pshot { margin: 0; }
+  .gn-pshot .fr { border: 1px solid rgba(242,242,240,0.25); background: #161616; overflow: hidden; aspect-ratio: 4 / 3; }
+  .gn-pshot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gn-pshot figcaption { color: rgba(242,242,240,0.55); }
+  .gn-pshot figcaption b { color: #e31e24; font-weight: 600; }
+
+  /* 索引 meta（黑底双列） */
+  .gn-index { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 44px; margin-top: 34px; }
+  .gn-idx-row {
+    display: grid; grid-template-columns: 150px 1fr; gap: 18px;
+    padding: 9px 0; border-bottom: 1px solid rgba(242,242,240,0.16);
+    font-size: 11px; line-height: 1.5; color: #f2f2f0;
+  }
+  .gn-idx-row .k {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(242,242,240,0.5); padding-top: 1px;
+  }
+
+  /* 页脚：大数字 5 + 标注 */
+  .gn-footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 30px; padding-top: 12px; border-top: 1px solid rgba(242,242,240,0.3);
+  }
+  .gn-fnum { display: flex; align-items: baseline; gap: 14px; }
+  .gn-fnum .n { font-size: clamp(26px, 3vw, 36px); font-weight: 900; line-height: 1; color: #f2f2f0; }
+  .gn-fnum .t { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #f2f2f0; }
+  .gn-fnum .t span { display: block; font-weight: 500; color: rgba(242,242,240,0.6); letter-spacing: 0.06em; margin-top: 3px; }
+  .gn-fmeta { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(242,242,240,0.45); }
+
+  .gn-edge {
+    position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+    writing-mode: vertical-rl; font-size: 9px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: rgba(242,242,240,0.38);
+  }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 900px) {
+    .collage-1 { width: 255px; height: 178px; }
+    .collage-2 { width: 90px; height: 145px; right: 15%; }
+    .collage-3 { width: 160px; height: 115px; }
+    .seal-koutou-wrap { width: 36px; height: 36px; right: -45px; }
+    .seal-name-wrap { width: 28px; height: 28px; }
+    .project-body { padding: 0 24px; }
+    .project-frame { padding: 18px 26px 28px; border-radius: 22px; }
+    .pf-image-wrap { height: clamp(200px, 30vh, 360px); gap: 6px; padding: 8px; }
+    .pf-title { font-size: clamp(26px, 6.5vw, 52px); }
+    .pf-nav { gap: 18px; }
+    .stack-card { width: 84vw; height: 56vh; }
+    .stack-card-clip { padding: 14px; }
+    .gallery-progress { right: 28px; bottom: 28px; }
+    .page-marker { bottom: 28px; left: 28px; }
+  }
+
+  @media (max-width: 600px) {
+    .main-nav { padding: 24px; }
+    .cover-body { padding: 0 24px; }
+    .title-block { margin-top: -30px; }
+    .calligraphy-row { gap: 8px; justify-content: center; }
+    .calligraphy-row .char-img { height: clamp(75px, 20vw, 120px); }
+    .collage-item { display: none; }
+    .scattered { display: none; }
+    .seal-koutou-wrap, .seal-name-wrap { display: none; }
+    .footer { left: 24px; right: 24px; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .divider { left: 24px; right: 24px; bottom: 160px; }
+    .scroll-hint { display: none; }
+    .title-sub { text-align: center; margin-left: 0; display: block; }
+    .project-body { padding: 0 20px; }
+    .project-frame { padding: 14px 18px 22px; border-radius: 20px; }
+    .pf-image-wrap { height: clamp(170px, 26vh, 300px); }
+    .pf-desc { font-size: 10px; }
+    .pf-nav { gap: 14px; }
+    .pf-title { white-space: normal; font-size: clamp(22px, 7.5vw, 34px); }
+    .stack-card { width: 90vw; height: 48vh; }
+    .stack-card-clip { padding: 10px 11px; }
+    .gallery-exit { top: 24px; left: 24px; }
+    .gallery-progress { right: 20px; bottom: 20px; gap: 8px; }
+    .progress-bar { width: 36px; }
+    .progress-label { display: none; }
+    .page-marker { bottom: 20px; left: 20px; gap: 6px; }
+  }
+
+  /* 环境光晕（仅封面）— 用 transform 定位避免每帧 layout */
+  .ambient-glow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,0,0,0.015) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    transform: translate3d(-300px, -300px, 0);
+    will-change: transform;
+  }
+
+  /* 第3页（编号3）响应式：窄屏降级为单栏，保留编辑感 */
+  @media (max-width: 900px) {
+    .book-body { padding: 30px 30px 34px; }
+    .book-grid { grid-template-columns: 1fr; gap: 28px; margin-top: 22px; }
+    .book-cols { margin-top: 20px; }
+    .book-footer { flex-wrap: wrap; gap: 14px; }
+    .bf-meta { margin-left: 0; }
+  }
+  @media (max-width: 600px) {
+    .book-body { padding: 24px 22px 28px; }
+    .book-photos { gap: 10px; }
+    .book-edge { display: none; }
+    .bt-left { margin-left: 0; }
+  }
+
+  /* 第4页（编号4：Hanfu）响应式 */
+  @media (max-width: 1100px) {
+    .hf-hero { grid-template-columns: 1fr 1fr; }
+    .hf-head { grid-column: 1 / -1; order: -1; padding: 0; }
+    .hf-seal-han { margin-top: 8px; }
+    .hf-media { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .gn-cards { grid-template-columns: 1fr; gap: 14px; }
+    .gn-heroimg .fr { aspect-ratio: 16 / 9; }
+    .gn-pgrid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  }
+  @media (max-width: 760px) {
+    .hf-body { padding: 28px 24px 36px; }
+    .hf-topbar .hf-tl { margin-left: 40px; }
+    .hf-hero { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hf-seal-han { width: min(152px, 42vw); margin-top: 4px; }
+    .hf-seal-fu { width: min(130px, 36vw); }
+    .hf-head { padding: 0; }
+    .hf-challenges { grid-template-columns: 1fr; }
+    .hf-ch { border-right: none; border-bottom: 1px solid rgba(23,21,15,0.28); padding: 16px 0; }
+    .hf-ch + .hf-ch { padding-left: 0; }
+    .hf-ch:last-child { border-bottom: none; }
+    .hf-index { grid-template-columns: 1fr; }
+    .hf-media { grid-template-columns: 1fr; gap: 18px; }
+    .gn-body { padding: 28px 24px 36px; }
+    .gn-meta .l { margin-left: 0; }
+    .gn-renders { margin: 0 -24px; padding: 20px 24px 30px; }
+    .gn-meta { flex-wrap: wrap; }
+    .gn-seal { top: -10px; right: 0; width: 40px; }
+    .gn-pgrid { grid-template-columns: 1fr; }
+    .gn-index { grid-template-columns: 1fr; }
+    .gn-edge { display: none; }
+    .gn-footer { flex-direction: column; gap: 14px; align-items: flex-start; }
+    .hf-edge { display: none; }
+    .hf-video-row { padding: 14px 14px 18px; }
+    .hf-footer { flex-direction: column; gap: 14px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body data-page-node-id="9BKOUFD5k43tvWAvH9TGLM">
+
+<!-- 环境光晕 -->
+<div class="ambient-glow" id="ambientGlow" data-page-node-id="YjnRW6ivAmeKcWwg9CK8eC"></div>
+
+<!-- 导航 -->
+<nav class="main-nav" id="mainNav" data-page-node-id="sh1OCgt2Bpw8OfOI4uV2Qf">
+  <a href="#" class="nav-brand" id="navHome" data-page-node-id="tqNgZoHJZzwqMer55Uh15K">
+    <span class="name-cn" data-page-node-id="BiWfjTPArE0v68GeQRY9bg">寿晨恺</span>
+    <span class="name-en" data-page-node-id="VdJzgOhFDFYT2egaMcUm2C">ChenKai（Kevin）Shou</span>
+  </a>
+  <div class="nav-links" data-page-node-id="XTep1VRzJsvANY3HXTW9y5">
+    <a href="#works" data-page-node-id="z5BamjBQKy3QLQYrPSxjKZ">Works</a>
+    <a href="#about" data-page-node-id="3MMS8c15pAooKKj43mbw6v">About</a>
+    <a href="#contact" data-page-node-id="35gAteQupIWsVVhYDxHeGf">Contact</a>
+  </div>
+</nav>
+
+<!-- ===== 第1页：封面 ===== -->
+<section class="page page-cover active" id="pageCover" data-page-node-id="ffUWsdeIYFYEo4vfJ4R5u6">
+  <div class="cover-body" data-page-node-id="zQE3qFGRqVlZVa74LTyamG">
+    <div class="title-block" id="titleBlock" data-page-node-id="K3rCaZT4wTUM9o63wTgEBv">
+      <div class="calligraphy-row" style="position: relative;" data-page-node-id="hkCmuW8dGHR8TVwr5sEEXT">
+        <img class="char-img" src="images/shou.jpg" alt="寿" data-speed="0.02" data-page-node-id="kwnWdp7tdUWKVDVvHCwrFt">
+        <img class="char-img" src="images/chen.jpg" alt="晨" data-speed="0.025" data-page-node-id="epja96ysaspDdYPKYmUH11">
+        <img class="char-img" src="images/kai.jpg" alt="恺" data-speed="0.03" data-page-node-id="s7LWmn95KuuGaSNyv6Ms3F">
+        <img class="char-img" src="images/zuo.jpg" alt="作" data-speed="0.02" data-page-node-id="Q0GfvAeRhjNDIIIzA4cPXH">
+        <img class="char-img" src="images/pin.jpg" alt="品" data-speed="0.025" data-page-node-id="E5cjQNXkJGihJWIsavLmbR">
+        <img class="char-img" src="images/ji.jpg" alt="集" data-speed="0.03" data-page-node-id="UKVWpoTjulh3jValGlChAC">
+        <div class="seal-koutou-wrap" data-speed="0.04" data-page-node-id="0uuFlEKAK8HYwKW0puqMI9">
+          <img src="images/seals.jpg" alt="敲头章" data-page-node-id="8L6Z74fb9dJ6iEKa2e7s5w">
+        </div>
+      </div>
+      <div class="title-sub" data-page-node-id="USoj4J4FdIehIeY80SlABN">Art Direction & Visual Design</div>
+    </div>
+
+    <!-- 拼贴图 -->
+    <div class="collage-item collage-1" data-speed="0.015" data-page-node-id="AoaSL6tBhcLaixYbgZkYtl">
+      <img src="images/photo1.jpg" alt="collage 1" data-page-node-id="z5jIBL80bjIxkREGkZk3a1">
+    </div>
+    <div class="collage-item collage-2" data-speed="0.025" data-page-node-id="y8GRXPrV3EdLTZoFAWDOTh">
+      <img src="images/photo2.jpg" alt="collage 2" data-page-node-id="oqqE3O6RQqfOTgwPzyX7uZ">
+    </div>
+    <div class="collage-item collage-3" data-speed="0.02" data-page-node-id="DPRgqax0irJG0cuiowknIk">
+      <img src="images/photo3.jpg" alt="collage 3" data-page-node-id="ZOTD04vs0qaEyRyOY1MnjP">
+    </div>
+
+    <!-- 散落文字 -->
+    <div class="scattered scat-1" data-speed="0.03" data-page-node-id="skukIRjuJEgvbkDrtIJ3cS">
+      Quick Thinker<br data-page-node-id="CAKtBUXiJPh46FUUGf2lyx">
+      Hands-On<br data-page-node-id="ThMTCLuRWBVdY4o5TvvDKa">
+      Detail-Driven
+    </div>
+    <div class="scattered scat-2" data-speed="0.015" data-page-node-id="dpmCJRuwXhCrDlL3GJtDRQ">
+      Film × Game<br data-page-node-id="8pN0I74KIvMrPuyYSm3LcH">
+      Art Direction<br data-page-node-id="GMT7b8Q8KsbwiI9nBMEouL">
+      Visual Design
+    </div>
+    <div class="scattered scat-3" data-speed="0.02" data-page-node-id="6l2RaYEhxerJcWmJpfKunx">
+      Shanghai / Based
+    </div>
+
+    <!-- 名字章 -->
+    <div class="seal-name-wrap" data-speed="0.035" data-page-node-id="fPDgAT1fBSheZeIMY1GCid">
+      <img src="images/seals.jpg" alt="名字章" data-page-node-id="B92lLJtUrCRC8e3ivlbT5t">
+    </div>
+
+    <!-- 底部分割线 -->
+    <div class="divider" data-page-node-id="Nz8ZTySAphhc9pFCwyU0q4"></div>
+
+    <!-- 底部信息 -->
+    <div class="footer" data-page-node-id="HPvKO7rjzHQwXEPWUkJakq">
+      <div class="footer-left" data-page-node-id="ESCYq9uAm3vBG8P3KaqRI2">
+        Emily Carr University of Art + Design<br data-page-node-id="mCQxaFwQloJU4KsPk0g8JA">
+        Film & Screen Arts
+      </div>
+      <div class="footer-right" data-page-node-id="GC3EMa1yqJAW3lRkHmnLd5">
+        shoukainuo@gmail.com<br data-page-node-id="CdmrBo0laloiWhq1HHGBfC">
+        +86 189 3988 1697
+      </div>
+    </div>
+
+    <!-- 滚动提示 -->
+    <div class="scroll-hint" id="scrollHint" data-page-node-id="7AS3RFWmcpcJU1Jcb5RFwA">
+      <span data-page-node-id="YFGEeeGV9SMgAFvM3jiDXH">Scroll</span>
+      <div class="scroll-arrow" data-page-node-id="YIaoKE1E6kn56ptxQ7juFW"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第2页：作品封面页 ===== -->
+<section class="page page-project" id="pageProject" data-page-node-id="KgNVt3DOiBoyCfZwx02all">
+  <div class="project-body" data-page-node-id="jyjrrwGtdbl2SCZzpkxEOO">
+    <div class="project-frame" id="projectCard" data-page-node-id="ztWs9a0itIoZ5iLr17rumT">
+      <div class="pf-corners" data-page-node-id="PzQQgIhAkxS3H6RG08goG0">
+        <span class="pf-name" data-page-node-id="JKGH12RAGBtj4GJtJQ2W0W">
+          <span class="name-cn" data-page-node-id="o2efIE8OfBm4s7EZ6pnzAL">寿晨恺</span>
+          <span class="name-en" data-page-node-id="vrEDqyBJq5nzdAWyvLUcNl">ChenKai（Kevin）Shou</span>
+        </span>
+        <div class="pf-nav" data-page-node-id="aj5V7ETbbIKSJPhsNEGNDK">
+          <a href="#" id="worksLink" data-page-node-id="pmYq4Oe85lCj4pIr4ADpiV">Works</a>
+          <span class="pf-nav-text" data-page-node-id="MSnvs4VUZLfdcex1b0CFWC">About</span>
+          <span class="pf-nav-text pf-nav-contact" data-page-node-id="uiRCP0S5y2t8MUKEbJZhYc">Contact</span>
+        </div>
+      </div>
+      <div class="pf-desc" data-page-node-id="a3BACzbpFCakMcsEmG36Eo">装置艺术与立体书 —— 纸张、机械结构与空间叙事（介绍文字占位，请替换为你的简介）</div>
+      <div class="pf-image-wrap" data-page-node-id="9BqAbSgyhGZBG49NG9hkBF">
+        <div class="pf-image-tile" data-page-node-id="gd1G50gVdLboBEkt4mB9EJ">
+          <img src="images/work03.jpg" alt="立体书作品 — 折叠立体雕塑" data-page-node-id="o7yaUX5yEMUYj8qCSUzYhr">
+        </div>
+        <div class="pf-image-tile" data-page-node-id="39vcK4GKEfephQbFxohSw5">
+          <img src="images/work05.jpg" alt="立体书作品 — 扇形展开结构" data-page-node-id="2Fm8YYEe3pXigkfDCpArCX">
+        </div>
+        <div class="pf-image-tile" data-page-node-id="Xl8Y7YCFJAS7L7P780soCz">
+          <img src="images/work01.jpg" alt="立体书作品 — 丝绸之路沙漠" data-page-node-id="xpe4B3VjAGEJupdqzHs43V">
+        </div>
+        <div class="pf-image-tile" data-page-node-id="x1Um92xj9nXjGOymGaluT0">
+          <img src="images/work11.jpg" alt="立体书作品 — 航天飞机" data-page-node-id="Qze4YkRANuTNVMoRUx8qfP">
+        </div>
+      </div>
+      <div class="pf-title-row" data-page-node-id="rWCgi6TjIX336cik2NBCrG">
+        <span class="pf-title" data-page-node-id="G9OBRV79K4cLcpX6xq4sP9">Pop-Up Book</span>
+        <span class="pf-title-cn" data-page-node-id="9BOd6vAFdrb6PfLMQHekYC">立体书</span>
+      </div>
+    </div>
+
+    <div class="project-hint" data-page-node-id="TMinKTXJ4qZN6ZDDjTRa7W">
+      <span data-page-node-id="36BVIp7oF4FADzZkzKZ1ID">Click to Explore</span>
+      <div class="hint-line" data-page-node-id="LBwvDjDW4LEgdW9l34avYB"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2.1页：堆叠撕纸画廊（第2页的子层级 — 翻牌画廊） ===== -->
+<section class="page page-project21" id="pageProject21" data-page-node-id="CvfXP7YGCf3e8uVFF54goN">
+  <div class="gallery-body" data-page-node-id="JGw6d2lN60n0jVDT7Qbbav">
+    <!-- 退出按钮：返回第2页（不是第1页） -->
+    <div class="gallery-exit" id="galleryExit" data-page-node-id="pOXshUImsMB9E30LY5WAHr">
+      <svg viewBox="0 0 24 24" data-page-node-id="layTpjs0XxgWMWqI9EqZfv"><path d="M19 12H5M12 19l-7-7 7-7" data-page-node-id="4E8AfEy1GEkjO4kGCVHmPR"/></svg>
+      <span data-page-node-id="sHJ8PGNG3zqDY1OE41vVoK">Back</span>
+    </div>
+
+    <!-- 2.1 标识（左下角，与右下角进度对称） -->
+    <div class="page-marker" data-page-node-id="Q8WaA6oU9pCLAJxajzzvYw">
+      <span class="marker-dot" data-page-node-id="YuNdOsGNUyuAvy46b52lua"></span>
+      <span class="marker-num" data-page-node-id="Ge9PYnnJNjrP1t03oYFnVi">2.1</span>
+    </div>
+
+    <!-- 卡片堆 -->
+    <div class="stack-stage" id="stackStage" data-page-node-id="v6n997KXfrszuDzoaO70ZW"></div>
+
+    <!-- 进度指示（右下角） -->
+    <div class="gallery-progress" data-page-node-id="GrOSDkw73LM7UfLno9GlfH">
+      <div class="progress-bar" data-page-node-id="9qLD2UB0yP12autdMJl2AD"><div class="progress-bar-fill" id="progressFill" data-page-node-id="YDOKnw5jyreLIBaVe2lkZw"></div></div>
+      <div class="progress-num" id="progressNum" data-page-node-id="OUb1HtrFPAZ58u5trBQvqI"><b data-page-node-id="OLe9qjqQKHM6LE0IyUG3cA">01</b> / 06</div>
+      <div class="progress-label" data-page-node-id="cHgFdZoho7MkS7hEOaFxUJ">Scroll to Flip</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第3页（编号3）：Kavino's Detouring Essay — 第2页的姊妹项目页，编辑型排版 ===== -->
+<section class="page page-book" id="pageBook" data-page-node-id="OfFVoFGBbyRnUS36USLzeQ">
+  <!-- 返回封面 -->
+  <button class="book-exit" id="bookExit" aria-label="Back" data-page-node-id="KH5rexiCft7LCOHe7TZuNR">
+    <svg viewBox="0 0 24 24" data-page-node-id="W9acICHzB7bJoocCWCo9Vp"><path d="M19 12H5M12 19l-7-7 7-7" data-page-node-id="umraxMBYPBn4GsQBBj3UEn"/></svg>
+    <span data-page-node-id="0IZ9pF4MswEWFJkrZERtX3">Back</span>
+  </button>
+
+  <div class="book-body" data-page-node-id="TUkjxgeJYQqjMaPJhPGzgE">
+    <header class="book-topbar" data-page-node-id="xwFzhw8lrLLxEQ4rLF4X1S">
+      <span class="bt-left" data-page-node-id="gS2EH1mjWHF2HgMnoxbxl3">CHENKAI (KEVIN) SHOU</span>
+      <span class="bt-right" data-page-node-id="08ndfC2xGgFTjzcuASLaDN">PORTFOLIO · 2023</span>
+    </header>
+
+    <div class="book-grid" data-page-node-id="Ee6kBakiLR9Z4wnaDg4bmq">
+      <div class="book-main" data-page-node-id="ERCrBJuHpWHv2DzM0KrtaC">
+        <p class="book-lead" data-page-node-id="942YtHQdSWY7M3ziUSnSnF">A <em data-page-node-id="WPbODn339lX8TI0jsmnso4">handmade</em> artist's book that unfolds into a spatial narrative — weaving memory, displacement &amp; the quiet poetry of everyday detours.</p>
+        <p class="book-sub" data-page-node-id="MJQpAbELY5RSYBEWzbsppN">A single-edition pop-up book that turns reading into a journey you walk through: folds, joints and pop-ups that release the prose of a young migrant slowly making a home in a new city.</p>
+
+        <div class="book-cols" data-page-node-id="xFv3TI52lBaxwdd8NK2S2l">
+          <div class="col" data-page-node-id="BTdazQrqEN8RktBEgVt9gM">
+            <h4 data-page-node-id="ERfizgalAuvNcM4bmVqS8y">Concept</h4>
+            <p data-page-node-id="zDgKr0kjjFwH3nAJ2tRkkx">A single-edition pop-up book, built entirely by hand. The essay is told through paper mechanics rather than flat pages — folds, tabs and joints that make the act of reading a physical, spatial journey.</p>
+          </div>
+          <div class="col" data-page-node-id="EllkbDlRBql3hLOK9qqO0V">
+            <h4 data-page-node-id="yxIYzosSfE5ppoApGIUjDn">Narrative</h4>
+            <p data-page-node-id="xN6Q7DVhj9YVUg0rFmI9sc">Diary-like prose panels drift across the folds. Fragments of memory, homesickness and everyday small detours slowly accumulate, quietly reshaping a place that is both home and elsewhere.</p>
+          </div>
+          <div class="col" data-page-node-id="vsfkEWee6QtLXDEkEcXNe8">
+            <h4 data-page-node-id="SYipytqWNuZG4Tq8F16Fvh">Structure</h4>
+            <p data-page-node-id="1b0Kvb0bHG8lLdT3OkbOUt">An accordion spine carries die-cut silhouettes and liftable pop-ups. As the book unfolds, panels rise and collapse, opening the text into a walkable, three-dimensional reading.</p>
+          </div>
+          <div class="col" data-page-node-id="54gAmhdI3FwqiqBd2Tqk5K">
+            <h4 data-page-node-id="NE5KBGhqxRLcyzjF8dDwbR">Material</h4>
+            <p data-page-node-id="5DqT8e9AX74B7NE0rsoQn5">Black and navy board with screen-printed panels and hand-cut paper. Every mechanism — hinge, tab, fold — is finished by hand, keeping the precision of an edition of one.</p>
+          </div>
+        </div>
+
+        <footer class="book-footer" data-page-node-id="MHzYC6BRjBRsAgJRcGOJH3">
+          <div class="bf-num" data-page-node-id="2ZE4WVaKGzNGaH4tXK3VkE">3</div>
+          <div class="bf-body">
+            <div class="bf-title" data-page-node-id="0Ar1eU3rOnnH3Er5FOqwBA">
+              <h3 data-page-node-id="i6hYB45ZcQF6H6BR3WFY2E">Kavino's Detouring Essay</h3>
+              <p data-page-node-id="PSSooZdjqCiWcRAV58DReH">Pop-up Artist Book — Handmade, 2023</p>
+            </div>
+            <div class="bf-meta" data-page-node-id="fFeKcNY60YAARfgd9GM1Yc">Edition of 1 · Paper mechanics · 56 panels</div>
+          </div>
+        </footer>
+      </div>
+
+      <div class="book-photos" data-page-node-id="tCTgIK2DXYhVyXummVKKrB">
+        <figure data-page-node-id="HY1DdWu9Asl52HgfeHkRHl"><img src="images/kavino_cover.jpg" alt="Kavino's Detouring Essay — 封面黑卡" data-page-node-id="tlbNgFG2n6jKHKlrIL1sqG"><figcaption data-page-node-id="Tr7I8jxzHqoisjUs2CpZLx">Cover — Black board</figcaption></figure>
+        <figure data-page-node-id="4nsBjJv4K6IJcLg3E6WqqO"><img src="images/kavino_open.jpg" alt="书页展开" data-page-node-id="cOG9wVPbstEWLzBO6hgeKk"><figcaption data-page-node-id="iUpmAEYcWjN7QCsdI1Fm4i">Unfolding</figcaption></figure>
+        <figure data-page-node-id="vaxHdgMxrHAprcF7TUPd03"><img src="images/kavino_detail.jpg" alt="印字面板近景" data-page-node-id="99kwN9eZ7SaZJN6ySyF80b"><figcaption data-page-node-id="nYodJT8OTLJrN70H7T11MR">Printed panels</figcaption></figure>
+        <figure data-page-node-id="93bADKP4aBVQSjAiHUgL0B"><img src="images/kavino_duo.jpg" alt="黑与藏蓝两本" data-page-node-id="nNsLhF5ERIgQGdLugc9M68"><figcaption data-page-node-id="PHrzaZEF3pK8dRK968ATah">Black &amp; navy</figcaption></figure>
+        <figure data-page-node-id="KBLQKdHYiP0j8WfhuWruWu"><img src="images/kavino_spread.jpg" alt="摊开的内页与黑盒" data-page-node-id="OQmGE9BUVPcRCLRBlY8FoB"><figcaption data-page-node-id="ZMHCkYqTy9T5vcjbbfsWDO">Spread &amp; box</figcaption></figure>
+        <figure data-page-node-id="XrgK9bTqJjHEyE1I6RkUS5"><img src="images/kavino_fold.jpg" alt="曲风琴式折叠内页" data-page-node-id="oNCqMdBeRhBflY8TJqJIkK"><figcaption data-page-node-id="ZQ3KJltmyMudL5ppxpFikB">Accordion</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="book-edge" data-page-node-id="lROnA7AXuaJghWhVrYSzbH">CHENKAI (KEVIN) SHOU — PORTFOLIO 2023</div>
+  </div>
+</section>
+
+<section class="page page-hanfu" id="pageHanfu">
+  <!-- 返回第3页（编号3） -->
+  <button class="book-exit hf-exit" id="hanfuExit" aria-label="Back">
+    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Back</span>
+  </button>
+
+  <div class="hf-body">
+    <div class="hf-inner">
+      <header class="hf-topbar">
+        <span class="hf-tl">CHENKAI (KEVIN) SHOU</span>
+        <span class="hf-tr">HANFU · PROJECT 04 — MOVING IMAGE</span>
+      </header>
+
+      <!-- 巨标区：汉 服 对角站位，流云暗纹在后方 -->
+      <div class="hf-hero">
+        <img class="cloud" src="images/hanfu_clouds.png" alt="" aria-hidden="true">
+        <div class="hf-seal hf-seal-han"><img src="images/hanfu_han.png" alt="汉 — 篆书"></div>
+        <div class="hf-head">
+          <p class="hf-eyebrow">Projection · Installation · Garment</p>
+          <h2 class="hf-wordmark">Han<span class="dot">·</span>Fu</h2>
+          <p class="hf-lead">Traditional Chinese dress — stepped into a small room, dressed in <em>light</em>, sound &amp; moving shadow.</p>
+          <p class="hf-prose">Hanfu is a cross-medium piece that fuses projection art, installation and garment design. Its subject is 汉服 — the traditional dress of ancient China — retold without the museum hush. The mood should feel less like an archive and more like browsing an old garment website: playful enough to keep you curious, gentle enough to teach the cut and character of Chinese traditional clothing along the way.</p>
+        </div>
+        <div class="hf-seal hf-seal-fu"><img src="images/hanfu_fu.png" alt="服 — 篆书"></div>
+      </div>
+
+      <!-- 三个挑战 -->
+      <div class="hf-challenges">
+        <div class="hf-ch">
+          <span class="no">01</span>
+          <h5>From Zero to Seam</h5>
+          <p>Learned sewing from absolute zero and drafted authentic Hanfu patterns (版型), finishing a garment built to hold its own under projected light.</p>
+        </div>
+        <div class="hf-ch">
+          <span class="no">02</span>
+          <h5>Play with the Space</h5>
+          <p>The room was small and unforgiving. Every object's size and position decided whether the piece breathed or collapsed — placement became the composition.</p>
+        </div>
+        <div class="hf-ch">
+          <span class="no">03</span>
+          <h5>Sight &amp; Sound</h5>
+          <p>A visual and aural experience: the image moves, the room speaks, and the audience picks up the features of Chinese traditional dress without ever being lectured.</p>
+        </div>
+      </div>
+
+      <!-- 索引 meta -->
+      <div class="hf-index">
+        <div>
+          <div class="hf-idx-row"><span class="k">Format</span><span class="v">Projection art · Installation · Garment design</span></div>
+          <div class="hf-idx-row"><span class="k">Garment</span><span class="v">Hanfu 汉服 — traditional Chinese dress</span></div>
+          <div class="hf-idx-row"><span class="k">Craft</span><span class="v">Sewing from zero · pattern drafting · hand finish</span></div>
+        </div>
+        <div>
+          <div class="hf-idx-row"><span class="k">Mood</span><span class="v">An old garment website — not a museum</span></div>
+          <div class="hf-idx-row"><span class="k">Experience</span><span class="v">Visual &amp; aural · 0:46 moving image with sound</span></div>
+          <div class="hf-idx-row"><span class="k">Space</span><span class="v">A confined room — size &amp; placement play</span></div>
+        </div>
+      </div>
+
+      <!-- 图片墙：非对称错位 -->
+      <div class="hf-stills-head">
+        <span>Stills — From the Moving Image</span>
+        <span class="r">01 – 06 · captured timecodes</span>
+      </div>
+      <div class="hf-media">
+        <figure class="hf-shot hf-s1"><div class="fr"><img src="images/hanfu_01.jpg" alt="Hanfu 影片静帧 1"></div><figcaption><b>st·01</b><span>00:04</span></figcaption></figure>
+        <figure class="hf-shot hf-s2"><div class="fr"><img src="images/hanfu_02.jpg" alt="Hanfu 影片静帧 2"></div><figcaption><b>st·02</b><span>00:10</span></figcaption></figure>
+        <figure class="hf-shot hf-s3"><div class="fr"><img src="images/hanfu_03.jpg" alt="Hanfu 影片静帧 3"></div><figcaption><b>st·03</b><span>00:17</span></figcaption></figure>
+        <figure class="hf-shot hf-s4"><div class="fr"><img src="images/hanfu_04.jpg" alt="Hanfu 影片静帧 4"></div><figcaption><b>st·04</b><span>00:24</span></figcaption></figure>
+        <figure class="hf-shot hf-s5"><div class="fr"><img src="images/hanfu_05.jpg" alt="Hanfu 影片静帧 5"></div><figcaption><b>st·05</b><span>00:31</span></figcaption></figure>
+        <figure class="hf-shot hf-s6"><div class="fr"><img src="images/hanfu_06.jpg" alt="Hanfu 影片静帧 6"></div><figcaption><b>st·06</b><span>00:39</span></figcaption></figure>
+      </div>
+
+      <!-- 影片：the piece -->
+      <div class="hf-video-row">
+        <div class="hf-video-top"><span>The Piece — Moving Image with Sound</span><span class="r">0:46 · 1280 × 720</span></div>
+        <video controls preload="metadata" poster="images/hanfu_04.jpg" src="hanfu_web.mp4"></video>
+        <p class="hf-video-note">The garment appears only as it is worn by light — projection, installation and tailoring share one frame. Turn the sound on: the piece is meant to be heard as much as seen.</p>
+      </div>
+
+      <footer class="hf-footer">
+        <div class="hf-fnum">
+          <div class="n">4</div>
+          <div class="t">Hanfu <span>汉服 — Projection · Installation · Garment</span></div>
+        </div>
+        <div class="hf-fmeta">Not a museum — an old garment website</div>
+      </footer>
+    </div>
+
+    <div class="hf-edge">CHENKAI (KEVIN) SHOU — PORTFOLIO 2023 · HANFU</div>
+  </div>
+</section>
+
+<!-- ===== 第5页（编号5）：REVOLVER — 商周青铜纹饰左轮 ===== -->
+<section class="page page-gun" id="pageGun">
+  <!-- 返回第4页（编号4） -->
+  <button class="book-exit gn-exit" id="gunExit" aria-label="Back">
+    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Back</span>
+  </button>
+
+  <div class="gn-body">
+    <div class="gn-inner">
+      <!-- IN'FORM 式三段 meta -->
+      <header class="gn-meta">
+        <span class="l">CHENKAI (KEVIN) SHOU</span>
+        <span>SHANG–ZHOU BRONZE × WESTERN GUN — RHINO 3D</span>
+        <span class="r">INDUSTRIAL FORM / 25'</span>
+      </header>
+
+      <!-- 满宽巨字（textLength 精确对齐图片边框）+ 右上角红印章 -->
+      <div class="gn-giantwrap">
+        <h2 class="gn-giant" role="img" aria-label="REVOLVER">
+          <svg viewBox="0 0 1000 180" aria-hidden="true" focusable="false"><text x="0" y="172" font-size="224" textLength="1000" lengthAdjust="spacingAndGlyphs">REVOLVER</text></svg>
+        </h2>
+        <img class="gn-seal" src="images/seal_red.png" alt="名字印章">
+      </div>
+
+      <!-- 白底 renders 区（全宽出血） -->
+      <div class="gn-renders">
+        <div class="gn-feathead">
+          <span>(04) RENDERED SHOTS — THE GUN, FOUR VIEWS</span>
+          <span class="r">RHINO 8 · STUDIO RIG</span>
+        </div>
+        <figure class="gn-heroimg">
+          <div class="fr"><img src="images/kk_01.jpg" alt="斜侧全景 — 枪管饕餮纹与整体轮廓"></div>
+          <figcaption><b>r·01</b><span>three-quarter hero — 45° view</span></figcaption>
+        </figure>
+        <div class="gn-cards">
+          <figure class="gn-card">
+            <div class="fr"><img src="images/kk_02.jpg" alt="侧视全景 — 完整形态"></div>
+            <figcaption><b>r·02</b><span>side profile — full form</span></figcaption>
+          </figure>
+          <figure class="gn-card">
+            <div class="fr"><img src="images/kk_03.jpg" alt="转轮与凤鸟纹中景特写"></div>
+            <figcaption><b>r·03</b><span>cylinder &amp; phoenix — mid shot</span></figcaption>
+          </figure>
+          <figure class="gn-card">
+            <div class="fr"><img src="images/kk_04.jpg" alt="枪管饕餮纹微距特写"></div>
+            <figcaption><b>r·04</b><span>barrel taotie — macro</span></figcaption>
+          </figure>
+        </div>
+
+        <!-- 导语：置于渲染图下方 -->
+        <p class="gn-lead2">A western revolver carved like a Shang–Zhou ritual bronze. <em>Phoenix, taotie and kui-dragon</em> motifs across polished chrome, matte carving and oiled hardwood — an ancient vessel, reforged as a machine.</p>
+      </div>
+
+      <!-- 黑底 process 区 3×2 -->
+      <div class="gn-process">
+        <div class="gn-prohead">
+          <span>(06) PROCESS — FROM CURVES TO SURFACES</span>
+          <span class="r">WIREFRAME → CARVE → SHADE</span>
+        </div>
+        <div class="gn-pgrid">
+          <figure class="gn-pshot">
+            <div class="fr"><img src="images/kk_proc_01.jpg" alt="Rhino 线框四视图"></div>
+            <figcaption><b>p·01</b><span>curves &amp; cages — quad views</span></figcaption>
+          </figure>
+          <figure class="gn-pshot">
+            <div class="fr"><img src="images/kk_proc_02.jpg" alt="实验室工作台建模"></div>
+            <figcaption><b>p·02</b><span>the desk — layer by layer</span></figcaption>
+          </figure>
+          <figure class="gn-pshot">
+            <div class="fr"><img src="images/kk_proc_03.jpg" alt="凤鸟纹黄色线稿落位"></div>
+            <figcaption><b>p·03</b><span>phoenix, plotted on the frame</span></figcaption>
+          </figure>
+          <figure class="gn-pshot">
+            <div class="fr"><img src="images/kk_proc_04.jpg" alt="兽面纹浮雕特写"></div>
+            <figcaption><b>p·04</b><span>taotie, carved in relief</span></figcaption>
+          </figure>
+          <figure class="gn-pshot">
+            <div class="fr"><img src="images/kk_proc_05.jpg" alt="白模阴影检查与图层面板"></div>
+            <figcaption><b>p·05</b><span>white clay — 26 layers, shaded</span></figcaption>
+          </figure>
+          <figure class="gn-pshot">
+            <div class="fr"><img src="images/kk_proc_06.jpg" alt="成品白模凤鸟浮雕"></div>
+            <figcaption><b>p·06</b><span>before metal — final pass</span></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 索引 meta -->
+      <div class="gn-index">
+        <div>
+          <div class="gn-idx-row"><span class="k">Tool</span><span>Rhino 8 — surface modelling, carve &amp; render</span></div>
+          <div class="gn-idx-row"><span class="k">Motifs</span><span>凤鳥纹 Phoenix · 饕餮纹 Taotie · 夔龍纹 Kui dragon</span></div>
+          <div class="gn-idx-row"><span class="k">Materials</span><span>Polished chrome · matte bronze carving · oiled hardwood</span></div>
+        </div>
+        <div>
+          <div class="gn-idx-row"><span class="k">Light</span><span>Three-point studio rig — key, fill, rim</span></div>
+          <div class="gn-idx-row"><span class="k">Build</span><span>26 layers · curve → surface → relief, by hand</span></div>
+          <div class="gn-idx-row"><span class="k">Core</span><span>An ancient vessel, reforged as a machine</span></div>
+        </div>
+      </div>
+
+      <footer class="gn-footer">
+        <div class="gn-fnum">
+          <div class="n">5</div>
+          <div class="t">Revolver <span>商周青铜 × 西部左轮 — Rhino 3D</span></div>
+        </div>
+        <div class="gn-fmeta">Not a weapon — a ritual vessel</div>
+      </footer>
+    </div>
+
+    <div class="gn-edge">CHENKAI (KEVIN) SHOU — PORTFOLIO 2023 · REVOLVER</div>
+  </div>
+</section>
+
+<script>
+  // ===== 状态 =====
+  // 0 = 封面（首页）
+  // 1 = 第2页（项目封面：寿晨恺 / Works / About / Contact）
+  // 2 = 2.1页（翻牌画廊 — 第2页的子层级）
+  // 3 = 第3页（编号3：Kavino's Detouring Essay）
+  // 4 = 第4页（编号4：Hanfu 汉服 — 投影·装置·服装）
+  // 5 = 第5页（编号5：Revolver — 商周青铜纹饰左轮）
+  let currentPage = 0;
+  let isTransitioning = false;
+  const pages = [
+    document.getElementById('pageCover'),
+    document.getElementById('pageProject'),
+    document.getElementById('pageProject21'),
+    document.getElementById('pageBook'),
+    document.getElementById('pageHanfu'),
+    document.getElementById('pageGun')
+  ];
+  const mainNav = document.getElementById('mainNav');
+  const scrollHint = document.getElementById('scrollHint');
+
+  // ===== 页面切换 =====
+  function goToPage(idx) {
+    if (isTransitioning || idx === currentPage) return;
+    isTransitioning = true;
+
+    // —— 封面可见性：去封面则放下来；离开封面（从封面出发）则上移隐藏 ——
+    if (idx === 0) {
+      pages[0].classList.remove('up');
+      scrollHint.style.display = 'flex';
+      setTimeout(() => { scrollHint.style.opacity = '1'; }, 100);
+    } else if (currentPage === 0) {
+      pages[0].classList.add('up');
+      scrollHint.style.opacity = '0';
+      setTimeout(() => { scrollHint.style.display = 'none'; }, 500);
+    }
+
+    // —— 每次进入第3页（编号3）/ 第4页（编号4），内部滚动复位到顶部 ——
+    if (idx === 3) {
+      const bb = document.querySelector('.book-body');
+      if (bb) { bb.scrollTop = 0; }
+    }
+    if (idx === 4) {
+      const hb = document.querySelector('.hf-body');
+      if (hb) { hb.scrollTop = 0; }
+    }
+    if (idx === 5) {
+      const gb = document.querySelector('.gn-body');
+      if (gb) { gb.scrollTop = 0; }
+    }
+
+    // —— 2.1 页走撕裂专属转场；其余页在非封面页之间做 active 互换 ——
+    if (idx === 2) {
+      tearTransitionToGallery();
+    } else {
+      // 恢复第2页（若被撕裂），再统一互换 active / 复位层级
+      pages[1].classList.remove('tearing');
+      pages[1].style.clipPath = '';
+      for (let p = 1; p < pages.length; p++) {
+        if (p === idx) {
+          pages[p].classList.add('active');
+          pages[p].style.zIndex = '';
+          pages[p].style.transform = '';
+        } else {
+          pages[p].classList.remove('active');
+          pages[p].style.zIndex = '';
+          pages[p].style.transform = '';
+        }
+      }
+    }
+
+    // 第2/3/4页隐藏全局导航，避免与角落文字/退出键重叠
+    mainNav.classList.toggle('nav-hidden', idx !== 0);
+
+    // 切页瞬间：清空所有滚轮累积 + 短暂锁定滚轮。
+    // 关键修复：从 2.1 页点返回落回第 2 页后，手指/滚轮的残余上滚
+    // 会在 1 秒过渡锁结束后立刻把页面顶回第 1 页（封面）——
+    // 观感上就是"返回键跳到了第一页"。锁 1.8 秒彻底拦掉这段残余滚动。
+    wheelAcc = 0;
+    coverMomentum = 0;
+    pageWheelLockUntil = performance.now() + (idx === 1 || idx === 3 || idx === 4 || idx === 5 ? 1800 : 800);
+
+    currentPage = idx;
+    setTimeout(() => { isTransitioning = false; }, 1000);
+  }
+
+  // ===== 撕裂转场：第2页中心被撕开、卡片卷曲坠落、纸屑飞散 =====
+  // 撕洞形状：26 个顶点各自随机最大半径 → 扩张时边缘不规则
+  const tearHolePts = (() => {
+    const N = 26;
+    const rand = mulberry32(424242);
+    const arr = [];
+    for (let i = 0; i < N; i++) {
+      arr.push({
+        angle: (i / N) * Math.PI * 2 + (rand() - 0.5) * 0.22,
+        maxR: 0.72 + rand() * 0.5   // 各方向撕开的程度不同
+      });
+    }
+    return arr;
+  })();
+
+  function animateTearHole(el, duration) {
+    const start = performance.now();
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    const diag = Math.hypot(W, H);
+    function easeOutQuart(t) { return 1 - Math.pow(1 - t, 3.2); }
+    function frame(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const e = easeOutQuart(t);
+      const pts = tearHolePts.map(p => {
+        const r = diag * 0.62 * p.maxR * e;
+        const x = 50 + (Math.cos(p.angle) * r) / W * 100;
+        const y = 50 + (Math.sin(p.angle) * r * 0.94) / H * 100;
+        return `${x.toFixed(2)}% ${y.toFixed(2)}%`;
+      });
+      // evenodd 带洞多边形：外圈为屏幕外大矩形，内圈为撕洞
+      el.style.clipPath = `polygon(evenodd, -40% -40%, 140% -40%, 140% 140%, -40% 140%, ${pts.join(',')})`;
+      if (t < 1 && el.classList.contains('tearing')) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // 纸屑：从撕口向四周飞散的米白纸片
+  function spawnTearDebris() {
+    const rand = mulberry32(Date.now() & 0xffff);
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    for (let i = 0; i < 12; i++) {
+      const d = document.createElement('div');
+      d.className = 'tear-debris';
+      const size = 22 + rand() * 52;
+      const ang = rand() * Math.PI * 2;
+      const dist = 0.35 + rand() * 0.55; // vw/vh 距离
+      d.style.width = size + 'px';
+      d.style.height = size * (0.55 + rand() * 0.7) + 'px';
+      // 不规则四边形纸片
+      const c = () => `${(rand() * 26).toFixed(0)}%`;
+      d.style.clipPath = `polygon(${c()} 0%, 100% ${c()}, ${100 - rand() * 26}% 100%, 0% ${100 - rand() * 26}%)`;
+      d.style.left = (cx + (rand() - 0.5) * 260) + 'px';
+      d.style.top = (cy + (rand() - 0.5) * 200) + 'px';
+      d.style.setProperty('--dx', (Math.cos(ang) * dist * 100).toFixed(1) + 'vw');
+      d.style.setProperty('--dy', (Math.sin(ang) * dist * 80 - 12).toFixed(1) + 'vh');
+      d.style.setProperty('--dr', ((rand() - 0.5) * 640).toFixed(0) + 'deg');
+      d.style.setProperty('--dur', (0.85 + rand() * 0.5).toFixed(2) + 's');
+      document.body.appendChild(d);
+      d.addEventListener('animationend', () => d.remove());
+    }
+  }
+
+  function tearTransitionToGallery() {
+    const proj = pages[1];   // 第2页
+    const gal = pages[2];    // 2.1页
+
+    // 1. 2.1页临时垫在第2页下方（z-index 低于 20），同步上滑就位
+    gal.style.zIndex = '10';
+    gal.classList.add('active');
+
+    // 2. 第2页开始撕裂：中心撕洞扩张 + 卡片卷曲坠落 + 纸屑飞散
+    proj.classList.add('tearing');
+    animateTearHole(proj, 950);
+    spawnTearDebris();
+
+    // 3. 撕口露出黑底后，卡片堆飞入
+    setTimeout(() => startStackIntro(), 400);
+
+    // 4. 转场结束：瞬间移除第2页（已被撕空），恢复 2.1页 层级
+    setTimeout(() => {
+      proj.classList.add('no-anim');
+      proj.classList.remove('tearing');
+      proj.style.clipPath = '';
+      gal.style.zIndex = '';
+      gal.style.transform = '';
+      requestAnimationFrame(() => requestAnimationFrame(() => proj.classList.remove('no-anim')));
+    }, 1020);
+  }
+
+  // 点击scroll hint
+  scrollHint.addEventListener('click', () => goToPage(1));
+
+  // 点击项目卡片进入画廊（撕裂转场）
+  document.getElementById('projectCard').addEventListener('click', () => goToPage(2));
+
+  // 点击 Works 链接进入画廊（同卡片点击效果）。阻止冒泡，避免重复触发。
+  document.getElementById('worksLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    goToPage(2);
+  });
+
+  // 退出 2.1页 → 返回第2页（项目封面）
+  document.getElementById('galleryExit').addEventListener('click', () => goToPage(1));
+
+  // 点击导航 Book 进入第3页（编号3）—— 已移除：改为第2页滚轮向下进入
+  // （第3页现在由第2页滚轮翻到，见下方滚轮逻辑）
+
+  // 第3页返回按钮 → 回第2页（编号3 是第2页的下一页，向上返回第2页）
+  document.getElementById('bookExit').addEventListener('click', () => goToPage(1));
+
+  // 第4页（编号4）返回按钮 → 回第3页（编号4 由第3页滚轮进入）
+  document.getElementById('hanfuExit').addEventListener('click', () => goToPage(3));
+
+  // 第5页（编号5）返回按钮 → 回第4页（编号4）
+  document.getElementById('gunExit').addEventListener('click', () => goToPage(4));
+
+  // 点击导航首页
+  document.getElementById('navHome').addEventListener('click', (e) => {
+    e.preventDefault();
+    goToPage(0);
+  });
+
+  // ===== 滚轮翻页 =====
+  // 2.1 页：简单节流——一次滚动手势最多翻一张：
+  // 累积滚动量过阈值才翻牌，翻完立即清零；翻牌动画期间(约420ms)直接丢弃滚轮输入；
+  // 停止滚动 150ms 后累积量自动归零。绝不连翻。
+  let wheelAcc = 0;           // 2.1 页滚动累积量
+  let wheelResetTimer = null;
+  let coverMomentum = 0;      // 封面↔项目页之间的累加器（独立于 2.1 页）
+  const FLIP_THRESHOLD = 90;  // 2.1 页翻一张所需的滚动累积量
+  const WHEEL_THRESHOLD = 60;
+  let pageWheelLockUntil = 0; // 切页后的滚轮锁：防止切页瞬间的残余滚动误触再切页
+
+  window.addEventListener('wheel', (e) => {
+    if (isTransitioning) return;
+    if (performance.now() < pageWheelLockUntil) return;
+
+    if (currentPage === 2) {
+      // 在 2.1 页：一次手势只翻一张
+      e.preventDefault();
+      if (stackAnimating) { wheelAcc = 0; return; } // 动画中：丢弃输入，防连翻
+      wheelAcc += e.deltaY;
+      if (wheelAcc >= FLIP_THRESHOLD) {
+        wheelAcc = 0;
+        advanceCard();
+      } else if (wheelAcc <= -FLIP_THRESHOLD) {
+        wheelAcc = 0;
+        retreatCard();
+      }
+      clearTimeout(wheelResetTimer);
+      wheelResetTimer = setTimeout(() => { wheelAcc = 0; }, 150);
+      return;
+    }
+
+    if (currentPage === 3) {
+      // 第3页：内部内容可滚动。滚到顶部再向上才返回第2页；
+      // 滚到底部再向下 → 进入第4页（编号4 Hanfu）。
+      const bb = document.querySelector('.book-body');
+      const overTop = bb && bb.scrollTop > 2;
+      const atBottom = bb && (bb.scrollHeight - bb.scrollTop - bb.clientHeight) < 24;
+      if (e.deltaY < 0 && !overTop) {
+        e.preventDefault();
+        goToPage(1);
+      } else if (e.deltaY > 0 && atBottom) {
+        e.preventDefault();
+        goToPage(4);
+      }
+      // 其余情况交给原生滚动（内部），不翻页
+      return;
+    }
+
+    if (currentPage === 4) {
+      // 第4页：内部内容可滚动。滚到顶部再向上 → 返回第3页；
+      // 滚到底部再向下 → 进入第5页（编号5 Revolver）。
+      const hb = document.querySelector('.hf-body');
+      const overTop = hb && hb.scrollTop > 2;
+      const atBottom = hb && (hb.scrollHeight - hb.scrollTop - hb.clientHeight) < 24;
+      if (e.deltaY < 0 && !overTop) {
+        e.preventDefault();
+        goToPage(3);
+      } else if (e.deltaY > 0 && atBottom) {
+        e.preventDefault();
+        goToPage(5);
+      }
+      // 其余情况交给原生滚动（内部），不翻页
+      return;
+    }
+
+    if (currentPage === 5) {
+      // 第5页：内部内容可滚动。滚到顶部再向上 → 返回第4页。
+      const gb = document.querySelector('.gn-body');
+      const overTop = gb && gb.scrollTop > 2;
+      if (e.deltaY < 0 && !overTop) {
+        e.preventDefault();
+        goToPage(4);
+      }
+      // 其余情况交给原生滚动（内部），不翻页
+      return;
+    }
+
+    // 封面 ↔ 项目页 → 第3页（编号3）之间的滚轮翻页
+    // 第2页 = 项目封面；向下进第3页（编号3），第3页向上回第2页
+    coverMomentum += e.deltaY;
+
+    if (Math.abs(coverMomentum) > WHEEL_THRESHOLD) {
+      if (coverMomentum > 0 && currentPage === 1) {
+        goToPage(3);       // 第2页 向下 → 第3页（编号3）
+      } else if (coverMomentum < 0 && currentPage === 3) {
+        goToPage(1);       // 第3页 向上 → 第2页
+      } else if (coverMomentum < 0 && currentPage === 1) {
+        goToPage(0);
+      } else if (coverMomentum > 0 && currentPage === 0) {
+        goToPage(1);
+      }
+      coverMomentum = 0;
+    }
+
+    clearTimeout(window.wheelTimer);
+    window.wheelTimer = setTimeout(() => { coverMomentum = 0; }, 150);
+  }, { passive: false });
+
+  // 触摸滑动（与滚轮同一套"内部滚到顶/底才翻页"判定，修复手机端一滑就翻页）
+  let touchStartY = 0;
+  let touchEndAt = 0;  // 防抖：同一手势被重复派发 touchend 时忽略第二次
+  const atScrollTop = (sel) => { const el = document.querySelector(sel); return !el || el.scrollTop <= 2; };
+  // 触摸版容差收紧到 8px：iOS 惯性滚动进行中不判到底，避免"没看完就被翻走"
+  const atScrollBottom = (sel) => { const el = document.querySelector(sel); return !el || (el.scrollHeight - el.scrollTop - el.clientHeight) < 8; };
+  window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener('touchend', (e) => {
+    const now = performance.now();
+    if (now - touchEndAt < 250) return;  // 250ms 内的重复 touchend（同手势双发/双击残留）直接忽略
+    touchEndAt = now;
+    if (isTransitioning) return;
+    if (now < pageWheelLockUntil) return;  // 切页后的锁对触摸同样生效
+    const dy = touchStartY - e.changedTouches[0].clientY;
+
+    if (currentPage === 2) {
+      // 2.1页：上滑翻走、下滑翻回
+      if (dy > 50) advanceCard();
+      else if (dy < -50) retreatCard();
+      return;
+    }
+
+    if (Math.abs(dy) < 60) return;
+
+    if (dy > 0) {
+      // 上滑 → 下一页（内容页必须已滚到底部）
+      if (currentPage === 0) goToPage(1);
+      else if (currentPage === 1) goToPage(3);
+      else if (currentPage === 3 && atScrollBottom('.book-body')) goToPage(4);
+      else if (currentPage === 4 && atScrollBottom('.hf-body')) goToPage(5);
+      // 第5页是最后一页：上滑不翻页
+    } else {
+      // 下滑 → 上一页（内容页必须已滚回顶部）
+      if (currentPage === 5 && atScrollTop('.gn-body')) goToPage(4);
+      else if (currentPage === 4 && atScrollTop('.hf-body')) goToPage(3);
+      else if (currentPage === 3 && atScrollTop('.book-body')) goToPage(1);
+      else if (currentPage === 1) goToPage(0);
+    }
+  }, { passive: true });
+
+  // ===== 视差效果（仅封面页）— rAF 节流，全部走 transform 合成层 =====
+  const ambientGlow = document.getElementById('ambientGlow');
+  const parallaxEls = Array.from(document.querySelectorAll('#pageCover [data-speed]'));
+  let pendingMX = null, pendingMY = null, parallaxRaf = null;
+
+  document.addEventListener('mousemove', (e) => {
+    pendingMX = e.clientX;
+    pendingMY = e.clientY;
+    if (parallaxRaf === null) parallaxRaf = requestAnimationFrame(applyParallax);
+  }, { passive: true });
+
+  function applyParallax() {
+    parallaxRaf = null;
+    if (currentPage !== 0 || pendingMX === null) return;
+    const x = pendingMX;
+    const y = pendingMY;
+
+    // 光晕用 transform 定位（不触发 layout）
+    ambientGlow.style.transform = `translate3d(${x - 300}px, ${y - 300}px, 0)`;
+
+    const halfW = window.innerWidth / 2;
+    const halfH = window.innerHeight / 2;
+    for (const el of parallaxEls) {
+      const speed = parseFloat(el.dataset.speed);
+      const offsetX = (x - halfW) * speed;
+      const offsetY = (y - halfH) * speed;
+      // 用 CSS 变量做视差，不覆盖各元素自身的 hover/旋转 transform
+      el.style.setProperty('--px', offsetX.toFixed(1) + 'px');
+      el.style.setProperty('--py', offsetY.toFixed(1) + 'px');
+    }
+  }
+
+  // ===== 2.1页：堆叠撕纸画廊 =====
+  const galleryImages = [
+    'images/work23.png',
+    'images/work22.png',
+    'images/work19.png',
+    'images/work20.png',
+    'images/work21.png',
+    'images/work27.png'
+  ];
+
+  const stackStage = document.getElementById('stackStage');
+  const progressNum = document.getElementById('progressNum');
+  const progressFill = document.getElementById('progressFill');
+  const totalCards = galleryImages.length;
+  let stackOrder = [];
+  let stackAnimating = false;
+
+  // 可复现随机数（每张卡片的撕口/角度固定）
+  function mulberry32(a) {
+    return function() {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  // 生成撕纸边缘 clip-path：双频抖动 —— 低频大撕裂 + 高频纤维毛刺
+  // 每边 22 个点（约 88 点），比单频 polygon 细腻一倍以上，逼近真实撕纸纤维
+  function makeTornPolygon(seed) {
+    const rand = mulberry32(seed);
+    const m = 1.6;        // 基准内缩（保证撕裂点不出界）
+    const lowAmp = 1.5;   // 低频撕裂幅度（大豁口）
+    const fibAmp = 0.38;  // 高频纤维毛刺幅度（细锯齿）
+    const N = 22;
+    const jit = () => (rand() - 0.5) * 2;
+    const pts = [];
+    // top: 左→右
+    for (let i = 0; i <= N; i++) {
+      const t = i / N;
+      pts.push(`${(m + (100 - 2*m) * t + lowAmp * jit()).toFixed(2)}% ${(m + lowAmp * jit() + fibAmp * jit()).toFixed(2)}%`);
+    }
+    // right: 上→下
+    for (let i = 1; i <= N; i++) {
+      const t = i / N;
+      pts.push(`${(100 - m + lowAmp * jit() + fibAmp * jit()).toFixed(2)}% ${(m + (100 - 2*m) * t + lowAmp * jit()).toFixed(2)}%`);
+    }
+    // bottom: 右→左
+    for (let i = N - 1; i >= 0; i--) {
+      const t = i / N;
+      pts.push(`${(m + (100 - 2*m) * t + lowAmp * jit()).toFixed(2)}% ${(100 - m + lowAmp * jit() + fibAmp * jit()).toFixed(2)}%`);
+    }
+    // left: 下→上
+    for (let i = N - 1; i >= 1; i--) {
+      const t = i / N;
+      pts.push(`${(m + lowAmp * jit() + fibAmp * jit()).toFixed(2)}% ${(m + (100 - 2*m) * t + lowAmp * jit()).toFixed(2)}%`);
+    }
+    return `polygon(${pts.join(',')})`;
+  }
+
+  // 创建卡片：撕纸主体 + 阴影层 + 卷边高光层
+  galleryImages.forEach((src, i) => {
+    const rand = mulberry32(1000 + i * 77);
+    const card = document.createElement('div');
+    card.className = 'stack-card';
+    card.dataset.idx = i;
+    card.dataset.dirx = rand() > 0.5 ? '1' : '-1';
+    card.dataset.rot = ((rand() - 0.5) * 5).toFixed(2); // 每张固定微旋转
+
+    const clip = document.createElement('div');
+    clip.className = 'stack-card-clip';
+    clip.style.clipPath = makeTornPolygon(i * 131 + 7);
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `作品 ${i + 1}`;
+    img.draggable = false;
+
+    const shadowLayer = document.createElement('div');
+    shadowLayer.className = 'stack-card-shadow';
+
+    const curlLayer = document.createElement('div');
+    curlLayer.className = 'stack-card-curl';
+
+    clip.appendChild(img);
+    clip.appendChild(shadowLayer);
+    clip.appendChild(curlLayer);
+    card.appendChild(clip);
+    stackStage.appendChild(card);
+    stackOrder.push(card);
+  });
+
+  function cardTransform(card, i) {
+    const off = i * 10;
+    const x = Number(card.dataset.dirx) * off;
+    const y = -off * 0.55;
+    return `translate3d(${x}px, ${y}px, 0) rotate(${card.dataset.rot}deg)`;
+  }
+
+  function layoutStack() {
+    stackOrder.forEach((card, i) => {
+      card.style.zIndex = String(100 - i);
+      card.style.transform = cardTransform(card, i);
+      card.style.opacity = String(Math.max(0.55, 1 - i * 0.08));
+      card.style.filter = `drop-shadow(0 18px 42px rgba(0,0,0,0.55)) brightness(${Math.max(0.62, 1 - i * 0.07).toFixed(2)})`;
+    });
+  }
+
+  function updateStackProgress() {
+    const idx = Number(stackOrder[0].dataset.idx) + 1;
+    progressNum.innerHTML = `<b>${String(idx).padStart(2, '0')}</b> / ${String(totalCards).padStart(2, '0')}`;
+    progressFill.style.width = (idx / totalCards * 100) + '%';
+  }
+
+  // 翻走最上层卡片（旋转飞出，回到堆底）
+  // 顺滑关键：opacity 在 layoutStack 阶段瞬时切换（不在基础 transition 内），
+  // 翻走时才显式同时过渡 transform + opacity
+  // 时序 400ms：单张翻牌轻快利落（一次手势只翻一张）
+  function advanceCard() {
+    if (stackAnimating) return;
+    stackAnimating = true;
+    const card = stackOrder.shift();
+    const dir = Math.random() > 0.5 ? 1 : -1;
+    card.style.zIndex = '200';
+    card.style.transition = 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease';
+    card.style.transform = `translate3d(${dir * 115}vw, 6vh, 0) rotate(${dir * 38}deg)`;
+    card.style.opacity = '0';
+    setTimeout(() => {
+      stackOrder.push(card);
+      // 瞬移回飞入起点（无 transition）
+      card.style.transition = 'none';
+      card.style.transform = `translate3d(${-dir * 50}vw, -18vh, 0) rotate(${-dir * 20}deg)`;
+      card.style.opacity = String(Math.max(0.55, 1 - (totalCards - 1) * 0.08));
+      void card.offsetWidth;
+      // 恢复 transition + 重排所有卡片位置
+      card.style.transition = '';
+      layoutStack();
+      setTimeout(() => { stackAnimating = false; }, 420);
+    }, 420);
+    updateStackProgress();
+  }
+
+  // 翻回上一张（从侧面飞回最上层）
+  function retreatCard() {
+    if (stackAnimating) return;
+    stackAnimating = true;
+    const card = stackOrder.pop();
+    stackOrder.unshift(card);
+    const dir = Math.random() > 0.5 ? 1 : -1;
+    // 显式设一次完整 transition（避免复用栈帧状态）
+    card.style.transition = 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease';
+    card.style.transform = `translate3d(${dir * 115}vw, 6vh, 0) rotate(${dir * 38}deg)`;
+    card.style.opacity = '0';
+    void card.offsetWidth;
+    // 瞬移到 layoutStack 状态（最上层 offset=0）— 因为已经是 unshift 到第一位
+    card.style.transition = 'none';
+    card.style.transform = cardTransform(card, 0);
+    card.style.opacity = '1';
+    void card.offsetWidth;
+    card.style.transition = '';
+    layoutStack();
+    setTimeout(() => { stackAnimating = false; }, 420);
+    updateStackProgress();
+  }
+
+  // 进入动画：卡片快速散落飞入 → 逐张减速 → 静止
+  function startStackIntro() {
+    stackAnimating = true;
+    stackOrder.forEach((card) => {
+      card.style.transition = 'none';
+      const i = Number(card.dataset.idx);
+      const dir = i % 2 === 0 ? -1 : 1;
+      card.style.transform = `translate3d(${dir * 55}vw, -85vh, 0) rotate(${dir * 42}deg)`;
+      card.style.opacity = '1';
+      card.style.filter = 'drop-shadow(0 18px 42px rgba(0,0,0,0.55)) brightness(1)';
+    });
+    void stackStage.offsetWidth;
+    // 越靠后的卡片延迟越大、时长越长 → 整体"由快到慢直到静止"
+    stackOrder.forEach((card) => {
+      const i = stackOrder.indexOf(card);
+      card.style.transition = `transform ${(0.72 + i * 0.09).toFixed(2)}s cubic-bezier(0.16, 1, 0.3, 1) ${i * 55}ms, opacity 0.5s ease`;
+    });
+    layoutStack();
+    setTimeout(() => {
+      stackOrder.forEach(c => c.style.transition = '');
+      stackAnimating = false;
+    }, 2400);
+  }
+
+  // 点击最上层卡片也能翻走
+  stackStage.addEventListener('click', (e) => {
+    const hit = e.target.closest('.stack-card');
+    if (hit && hit === stackOrder[0]) advanceCard();
+  });
+
+  // 键盘操作
+  window.addEventListener('keydown', (e) => {
+    if (currentPage !== 2) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); advanceCard(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); retreatCard(); }
+    else if (e.key === 'Escape') goToPage(1);
+  });
+
+  // 初始渲染
+  layoutStack();
+  updateStackProgress();
+
+  // 窗口resize
+  window.addEventListener('resize', layoutStack);
+</script>
+</body>
+</html>
